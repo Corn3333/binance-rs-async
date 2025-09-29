@@ -130,6 +130,7 @@ impl FuturesAccount {
             callback_rate: None,
             working_type: None,
             price_protect: None,
+            price_match: None,
             new_client_order_id: None,
         };
         self.place_order(order).await
@@ -158,6 +159,7 @@ impl FuturesAccount {
             callback_rate: None,
             working_type: None,
             price_protect: None,
+            price_match: None,
             new_client_order_id: None,
         };
         self.place_order(order).await
@@ -184,6 +186,7 @@ impl FuturesAccount {
             callback_rate: None,
             working_type: None,
             price_protect: None,
+            price_match: None,
             new_client_order_id: None,
         };
         self.place_order(order).await
@@ -210,6 +213,7 @@ impl FuturesAccount {
             callback_rate: None,
             working_type: None,
             price_protect: None,
+            price_match: None,
             new_client_order_id: None,
         };
         self.place_order(order).await
