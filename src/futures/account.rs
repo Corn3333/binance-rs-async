@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 
 use super::rest_model::{AccountBalance, AccountInformation, CanceledOrder, ChangeLeverageResponse, Order, OrderType,
-                        Position, PositionSide, Transaction, WorkingType};
+                        Position, PositionSide, Transaction, WorkingType, PriceMatch};
 use crate::account::OrderCancellation;
 use crate::client::Client;
 use crate::errors::*;
@@ -68,6 +68,7 @@ pub struct OrderRequest {
     pub working_type: Option<WorkingType>,
     #[serde(serialize_with = "serialize_opt_as_uppercase")]
     pub price_protect: Option<bool>,
+    pub price_match: Option<PriceMatch>,
     pub new_client_order_id: Option<String>,
 }
 
