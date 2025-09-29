@@ -69,6 +69,29 @@ pub enum ContractType {
     Empty,
 }
 
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum PriceMatch {
+    #[serde(rename = "NONE")]
+    None,
+    #[serde(rename = "OPPONENT")]
+    Opponent,
+    #[serde(rename = "OPPONENT_5")]
+    Opponent5,
+    #[serde(rename = "OPPONENT_10")]
+    Opponent10,
+    #[serde(rename = "OPPONENT_20")]
+    Opponent20,
+    #[serde(rename = "QUEUE")]
+    Queue,
+    #[serde(rename = "QUEUE_5")]
+    Queue5,
+    #[serde(rename = "QUEUE_10")]
+    Queue10,
+    #[serde(rename = "QUEUE_20")]
+    Queue20,
+}
+
+
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum OrderType {
