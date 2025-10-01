@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 
 use super::rest_model::{AccountBalance, AccountInformation, CanceledOrder, ChangeLeverageResponse, Order, OrderType,
-                        Position, PositionSide, Transaction, WorkingType, PriceMatch};
+                        Position, PositionSide, Transaction, WorkingType, PriceMatch, CancelAllOpenOrders};
 use crate::account::OrderCancellation;
 use crate::client::Client;
 use crate::errors::*;
@@ -282,17 +282,16 @@ impl FuturesAccount {
     }
 
     /// Cancel all open orders on this symbol
-    pub async fn cancel_all_open_orders<S>(&self, symbol: S) -> Result<()>
+    pub async fn cancel_all_open_orders<S>(&self, symbol: S) -> Result<CancelAllOpenOrders>
     where
         S: Into<String>,
     {
         self.client
-            .delete_signed_p::<(), _>(
+            .delete_signed_p(
                 "/fapi/v1/allOpenOrders",
                 PairQuery { symbol: symbol.into() },
                 self.recv_window,
             )
-            .await?;
-        Ok(())
+            .await
     }
 }
